@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101010">
+  <meta name="description" content="KS Recovery - Recuperação, cuidado e bem-estar. Conheça nossos serviços e entre em contato.">
+  <title>KS Recovery | Recuperação e Bem-estar</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --preto: #101010;
+      --preto2: #191919;
+      --laranja: #ff7a00;
+      --laranja-hover: #e66d00;
+      --branco: #f7f7f7;
+      --cinza: #aaa;
+      --borda: rgba(255,255,255,.12);
+      --largura: 1180px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      background: var(--preto);
+      color: var(--branco);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select, textarea {
+      font: inherit;
+    }
+
+    .container {
+      width: min(var(--largura), calc(100% - 40px));
+      margin: auto;
+    }
+
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-label {
+      color: var(--laranja);
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+    }
+
+    h1, h2, h3 {
+      font-family: "Manrope", sans-serif;
+      line-height: 1.15;
+    }
+
+    h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 800;
+      letter-spacing: -2px;
+    }
+
+    h2 {
+      font-size: clamp(30px, 4vw, 46px);
+      letter-spacing: -1px;
+    }
+
+    p {
+      color: var(--cinza);
+    }
+
+    .section-title {
+      max-width: 680px;
+      margin-bottom: 42px;
+    }
+
+    .section-title h2 {
+      margin: 15px 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 23px;
+      min-height: 52px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: .25s;
+    }
+
+    .btn-primary {
+      background: var(--laranja);
+      color: #111;
+    }
+
+    .btn-primary:hover {
+      background: var(--laranja-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border-color: var(--borda);
+      color: white;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--laranja);
+      color: var(--laranja);
+    }
+
+    /* CABEÇALHO */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(16,16,16,.94);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--borda);
+    }
+
+    nav {
+      min-height: 82px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: "Manrope", sans-serif;
+      font-weight: 800;
+      font-size: 19px;
+      line-height: 1.2;
+    }
+
+    .logo-symbol {
+      width: 45px;
+      height: 45px;
+      display: grid;
+      place-items: center;
+      background: var(--laranja);
+      color: #111;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    .logo small {
+      display: block;
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: var(--cinza);
+      margin-top: 5px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a:not(.btn) {
+      font-size: 14px;
+      color: #ddd;
+      transition: .2s;
+    }
+
+    .nav-links a:not(.btn):hover {
+      color: var(--laranja);
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 1px solid var(--borda);
+      background: transparent;
+      color: white;
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 23px;
+      cursor: pointer;
+    }
+
+    /* INÍCIO */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 100px 0 90px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      top: -200px;
+      right: -150px;
+      background: radial-gradient(circle, rgba(255,122,0,.16), transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .hero h1 {
+      margin: 22px 0;
+    }
+
+    .hero h1 span {
+      color: var(--laranja);
+    }
+
+    .hero-description {
+      max-width: 530px;
+      font-size: 17px;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-image {
+      min-height: 490px;
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding: 30px;
+      background:
+        linear-gradient(to top, rgba(0,0,0,.9), transparent 80%),
+        url("img1.jpeg")
+        center/cover;
+      border: 1px solid var(--borda);
+    }
+
+    .image-tag {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: var(--laranja);
+      color: #111;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 8px 12px;
+      border-radius: 5px;
+      letter-spacing: 1px;
+    }
+
+    .hero-image h3 {
+      font-size: 29px;
+      margin-bottom: 10px;
+    }
+
+    .hero-image p {
+      color: #ddd;
+    }
+
+    /* DIFERENCIAIS */
+
+    .highlights {
+      border-top: 1px solid var(--borda);
+      border-bottom: 1px solid var(--borda);
+      background: #151515;
+    }
+
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .highlight {
+      padding: 28px 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .highlight + .highlight {
+      border-left: 1px solid var(--borda);
+    }
+
+    .highlight-icon {
+      color: var(--laranja);
+      font-size: 27px;
+    }
+
+    .highlight strong {
+      display: block;
+      font-size: 15px;
+    }
+
+    .highlight p {
+      font-size: 13px;
+    }
+
+    /* SOBRE */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      align-items: center;
+      gap: 65px;
+    }
+
+    .about-image {
+      min-height: 460px;
+      border-radius: 18px;
+      background:
+        linear-gradient(to top, rgba(0,0,0,.6), transparent),
+        url("img2.jpeg")
+        center/cover;
+      border: 1px solid var(--borda);
+    }
+
+    .about-copy h2 {
+      margin: 16px 0;
+    }
+
+    .about-copy > p {
+      margin-bottom: 22px;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 15px;
+      margin: 25px 0 30px;
+    }
+
+    .check {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: #ddd;
+    }
+
+    .check span {
+      color: var(--laranja);
+      font-weight: 800;
+    }
+
+    /* SERVIÇOS */
+
+    .services {
+      background: var(--preto2);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      padding: 30px;
+      border: 1px solid var(--borda);
+      border-radius: 14px;
+      background: #141414;
+      transition: .25s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--laranja);
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(255,122,0,.12);
+      color: var(--laranja);
+      font-size: 25px;
+      margin-bottom: 24px;
+    }
+
+    .service-card h3 {
+      font-size: 21px;
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      font-size: 14px;
+    }
+
+    .service-link {
+      display: inline-block;
+      margin-top: 22px;
+      color: var(--laranja);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    /* ETAPAS */
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .step {
+      border-top: 1px solid var(--borda);
+      padding-top: 24px;
+    }
+
+    .step-number {
+      color: var(--laranja);
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+
+    .step h3 {
+      margin: 16px 0 10px;
+    }
+
+    .step p {
+      font-size: 14px;
+    }
+
+    /* CHAMADA */
+
+    .cta {
+      padding: 0 0 100px;
+    }
+
+    .cta-box {
+      padding: 60px;
+      border-radius: 18px;
+      background: var(--laranja);
+      color: #111;
+    }
+
+    .cta-box .section-label {
+      color: #38200b;
+    }
+
+    .cta-box h2 {
+      max-width: 700px;
+      margin: 15px 0;
+    }
+
+    .cta-box p {
+      max-width: 580px;
+      color: #38291d;
+      margin-bottom: 25px;
+    }
+
+    .cta-box .btn {
+      background: #111;
+      color: white;
+    }
+
+    /* PERGUNTAS */
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 60px;
+    }
+
+    .faq-grid h2 {
+      margin: 15px 0;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--borda);
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 22px 0;
+      background: transparent;
+      border: none;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      text-align: left;
+      gap: 15px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .faq-question span {
+      color: var(--laranja);
+      font-size: 22px;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 0 22px;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    /* CONTATO */
+
+    .contact {
+      background: var(--preto2);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+    }
+
+    .contact-copy h2 {
+      margin: 15px 0;
+    }
+
+    .contact-option {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      padding: 17px;
+      border: 1px solid var(--borda);
+      border-radius: 12px;
+      margin-top: 15px;
+    }
+
+    .contact-option .service-icon {
+      margin: 0;
+      flex-shrink: 0;
+    }
+
+    .contact-option strong {
+      display: block;
+    }
+
+    .contact-option p {
+      font-size: 13px;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-form {
+      background: #111;
+      border: 1px solid var(--borda);
+      padding: 30px;
+      border-radius: 15px;
+    }
+
+    .contact-form h3 {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .contact-form > p {
+      margin-bottom: 22px;
+      font-size: 14px;
+    }
+
+    .field {
+      margin-bottom: 17px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 13px;
+      color: #ddd;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      padding: 13px;
+      color: white;
+      background: #1b1b1b;
+      border: 1px solid var(--borda);
+      border-radius: 8px;
+      outline: none;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--laranja);
+    }
+
+    .field textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .field select option {
+      background: #1b1b1b;
+    }
+
+    .contact-form button {
+      width: 100%;
+    }
+
+    .form-note {
+      font-size: 11px;
+      margin-top: 12px;
+    }
+
+    /* RODAPÉ */
+
+    footer {
+      padding: 30px 0;
+      border-top: 1px solid var(--borda);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-content p {
+      font-size: 12px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      font-size: 13px;
+      color: var(--cinza);
+    }
+
+    .footer-links a:hover {
+      color: var(--laranja);
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 90;
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--laranja);
+      color: #111;
+      font-size: 25px;
+      box-shadow: 0 5px 25px #0008;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.07);
+    }
+
+    /* CELULARES */
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .about-grid,
+      .contact-grid,
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid,
+      .about-grid,
+      .contact-grid,
+      .faq-grid {
+        gap: 35px;
+      }
+
+      .hero-image {
+        min-height: 400px;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-links {
+        gap: 15px;
+      }
+
+      .nav-links a:not(.btn) {
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .container {
+        width: calc(100% - 32px);
+      }
+
+      .section {
+        padding: 70px 0;
+      }
+
+      .hero {
+        padding: 65px 0;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 81px;
+        left: 0;
+        right: 0;
+        background: #111;
+        padding: 22px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a:not(.btn) {
+        padding: 14px 0;
+        border-bottom: 1px solid var(--borda);
+        font-size: 15px;
+      }
+
+      .nav-links .btn {
+        margin-top: 18px;
+      }
+
+      .highlights-grid,
+      .services-grid,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .highlight + .highlight {
+        border-left: none;
+        border-top: 1px solid var(--borda);
+      }
+
+      .highlight {
+        padding: 20px 5px;
+      }
+
+      .hero-image {
+        min-height: 350px;
+        padding: 22px;
+      }
+
+      .hero-image h3 {
+        font-size: 25px;
+      }
+
+      .cta-box {
+        padding: 30px 23px;
+      }
+
+      .contact-form {
+        padding: 22px;
+      }
+
+      .footer-content {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- MENU -->
+  <header>
+    <nav class="container">
+      <a class="logo" href="#inicio">
+        <span class="logo-symbol">KS</span>
+        <span>
+          KS RECOVERY
+          <small>RECUPERAÇÃO & BEM-ESTAR</small>
+        </span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle"
+        aria-label="Abrir menu" aria-expanded="false">☰</button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#faq">Dúvidas</a>
+        <a href="#contato" class="btn btn-primary">Entre em contato ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- PÁGINA INICIAL -->
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+
+        <div>
+          <span class="section-label">KS Recovery • Bem-estar</span>
+
+          <h1>
+            Recupere seu ritmo.
+            <span>Cuide de você.</span>
+          </h1>
+
+          <p class="hero-description">
+            Seu corpo merece atenção. Conheça a KS Recovery e descubra
+            uma experiência dedicada ao cuidado, à recuperação e ao
+            bem-estar.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#contato" class="btn btn-primary">
+              Conhecer a KS Recovery ↗
+            </a>
+
+            <a href="#servicos" class="btn btn-outline">
+              Conheça os serviços
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-image">
+          <span class="image-tag">KS RECOVERY</span>
+          <div>
+            <h3>Seu bem-estar em primeiro lugar.</h3>
+            <p>Um momento para cuidar de você e seguir em frente.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DIFERENCIAIS -->
+    <section class="highlights">
+      <div class="container highlights-grid">
+
+        <div class="highlight">
+          <span class="highlight-icon">✳</span>
+          <div>
+            <strong>Atenção individual</strong>
+            <p>Cuidado em cada etapa.</p>
+          </div>
+        </div>
+
+        <div class="highlight">
+          <span class="highlight-icon">◉</span>
+          <div>
+            <strong>Bem-estar</strong>
+            <p>Um tempo para você.</p>
+          </div>
+        </div>
+
+        <div class="highlight">
+          <span class="highlight-icon">↗</span>
+          <div>
+            <strong>Atendimento próximo</strong>
+            <p>Converse com nossa equipe.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="section" id="sobre">
+      <div class="container about-grid">
+
+        <div class="about-image"></div>
+
+        <div class="about-copy">
+          <span class="section-label">Conheça a empresa</span>
+
+          <h2>
+            Mais cuidado.
+            <span style="color:var(--laranja)">Mais bem-estar.</span>
+          </h2>
+
+          <p>
+            A KS Recovery tem como proposta valorizar o cuidado pessoal,
+            a recuperação e o bem-estar. Um espaço para conhecer
+            possibilidades de cuidado e encontrar a opção mais adequada
+            às suas necessidades.
+          </p>
+
+          <div class="check-list">
+            <div class="check">
+              <span>✓</span>
+              Atendimento atencioso e próximo.
+            </div>
+
+            <div class="check">
+              <span>✓</span>
+              Informações claras sobre os serviços.
+            </div>
+
+            <div class="check">
+              <span>✓</span>
+              Contato simples para tirar dúvidas.
+            </div>
+          </div>
+
+          <a href="#contato" class="btn btn-primary">
+            Fale com a KS Recovery ↗
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section class="section services" id="servicos">
+      <div class="container">
+
+        <div class="section-title">
+          <span class="section-label">Nossas experiências</span>
+          <h2>Conheça nossas opções.</h2>
+          <p>
+            Entre em contato para saber quais serviços estão disponíveis,
+            conhecer os detalhes e consultar horários.
+          </p>
+        </div>
+
+        <div class="services-grid">
+
+          <article class="service-card">
+            <div class="service-icon">↗</div>
+            <h3>Recovery esportivo</h3>
+            <p>
+              Uma proposta de cuidado para quem pratica atividades físicas
+              e deseja conhecer opções voltadas à recuperação esportiva.
+            </p>
+            <a class="service-link" href="#contato"
+              data-service="Recovery esportivo">
+              Saiba mais →
+            </a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">◉</div>
+            <h3>Relaxamento e bem-estar</h3>
+            <p>
+              Conheça as opções disponíveis para incluir momentos de
+              cuidado e bem-estar na sua rotina.
+            </p>
+            <a class="service-link" href="#contato"
+              data-service="Relaxamento e bem-estar">
+              Saiba mais →
+            </a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">✳</div>
+            <h3>Atendimento personalizado</h3>
+            <p>
+              Converse com a equipe, explique o que procura e receba
+              informações sobre as opções oferecidas.
+            </p>
+            <a class="service-link" href="#contato"
+              data-service="Atendimento personalizado">
+              Saiba mais →
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section class="section" id="como-funciona">
+      <div class="container">
+
+        <div class="section-title">
+          <span class="section-label">Como funciona</span>
+          <h2>Comece com uma conversa.</h2>
+          <p>
+            Conheça as opções, tire suas dúvidas e consulte a disponibilidade
+            diretamente com a KS Recovery.
+          </p>
+        </div>
+
+        <div class="steps">
+
+          <article class="step">
+            <span class="step-number">01 / CONTATO</span>
+            <h3>Conte o que procura</h3>
+            <p>
+              Envie uma mensagem e explique o que gostaria de conhecer.
+            </p>
+          </article>
+
+          <article class="step">
+            <span class="step-number">02 / INFORMAÇÕES</span>
+            <h3>Conheça as opções</h3>
+            <p>
+              Consulte os serviços disponíveis, os valores e os horários.
+            </p>
+          </article>
+
+          <article class="step">
+            <span class="step-number">03 / AGENDAMENTO</span>
+            <h3>Combine seu horário</h3>
+            <p>
+              Se desejar, combine o atendimento diretamente com a equipe.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAMADA -->
+    <section class="cta">
+      <div class="container">
+        <div class="cta-box">
+
+          <span class="section-label">Seu próximo passo</span>
+
+          <h2>
+            Reserve um momento para cuidar de você.
+          </h2>
+
+          <p>
+            Entre em contato com a KS Recovery e conheça as experiências
+            disponíveis.
+          </p>
+
+          <a href="#contato" class="btn">
+            Quero saber mais ↗
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PERGUNTAS FREQUENTES -->
+    <section class="section" id="faq">
+      <div class="container faq-grid">
+
+        <div>
+          <span class="section-label">Dúvidas frequentes</span>
+          <h2>Podemos ajudar?</h2>
+          <p>
+            Confira algumas respostas ou envie sua pergunta diretamente
+            para nossa equipe.
+          </p>
+
+          <a href="#contato" class="btn btn-outline"
+            style="margin-top:22px">
+            Enviar uma pergunta ↗
+          </a>
+        </div>
+
+        <div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Como faço para agendar?
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Preencha o formulário de contato. Você poderá abrir
+                uma mensagem no WhatsApp para combinar seu atendimento.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Quais serviços vocês oferecem?
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Entre em contato para receber a lista atualizada dos
+                serviços disponíveis.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Como consulto os valores?
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Você pode solicitar os valores e as informações de
+                atendimento diretamente com a equipe.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Posso tirar dúvidas antes de agendar?
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Sim. Entre em contato pelo Instagram ou pelo WhatsApp
+                comercial para esclarecer suas dúvidas.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section class="section contact" id="contato">
+      <div class="container contact-grid">
+
+        <div class="contact-copy">
+          <span class="section-label">Entre em contato</span>
+          <h2>Vamos conversar?</h2>
+
+          <p>
+            Estamos aqui para ajudar você a conhecer melhor a KS Recovery.
+            Envie sua mensagem e consulte as informações de atendimento.
+          </p>
+
+          <a class="contact-option"
+             href="https://instagram.com/ks_recoverybemestar"
+             target="_blank" rel="noopener noreferrer">
+            <div class="service-icon">◎</div>
+            <div>
+              <strong>Instagram</strong>
+              <p>@ks_recoverybemestar</p>
+            </div>
+          </a>
+
+          <div class="contact-option">
+            <div class="service-icon">◷</div>
+            <div>
+              <strong>Horários e agendamento</strong>
+              <p>Consulte a disponibilidade com a equipe.</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <h3>Envie sua mensagem</h3>
+          <p>Preencha os campos para continuar pelo WhatsApp.</p>
+
+          <div class="field">
+            <label for="name">Seu nome</label>
+            <input id="name" name="name" type="text"
+              placeholder="Digite seu nome" required>
+          </div>
+
+          <div class="field">
+            <label for="interest">Assunto</label>
+            <select id="interest" name="interest" required>
+              <option value="">Selecione uma opção</option>
+              <option>Recovery esportivo</option>
+              <option>Relaxamento e bem-estar</option>
+              <option>Atendimento personalizado</option>
+              <option>Valores e horários</option>
+              <option>Outra dúvida</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="message">Sua mensagem</label>
+            <textarea id="message" name="message"
+              placeholder="Como podemos ajudar?"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            Continuar pelo WhatsApp ↗
+          </button>
+
+          <p class="form-note">
+            Você poderá revisar e enviar a mensagem no WhatsApp.
+          </p>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <div class="container footer-content">
+
+      <a class="logo" href="#inicio">
+        <span class="logo-symbol">KS</span>
+        <span>
+          KS RECOVERY
+          <small>RECUPERAÇÃO & BEM-ESTAR</small>
+        </span>
+      </a>
+
+      <p>
+        © <span id="year"></span> KS Recovery. Todos os direitos reservados.
+      </p>
+
+      <div class="footer-links">
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="https://instagram.com/ks_recoverybemestar"
+          target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- BOTÃO FLUTUANTE -->
+  <a href="#contato" class="whatsapp-float"
+    id="whatsappFloat" aria-label="Entrar em contato pelo WhatsApp">
+    ✆
+  </a>
+
+  <script>
+    /*
+      CONFIGURE AQUI O WHATSAPP COMERCIAL DA KS RECOVERY.
+
+      Coloque o código do Brasil + DDD + número, somente números.
+      Exemplo fictício: 5541999999999
+    */
+    const WHATSAPP_NUMBER = "55DDDNÚMEROAQUI";
+
+    // Menu para celular
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const aberto = navLinks.classList.toggle("open");
+
+      menuToggle.textContent = aberto ? "×" : "☰";
+      menuToggle.setAttribute("aria-expanded", String(aberto));
+      menuToggle.setAttribute(
+        "aria-label",
+        aberto ? "Fechar menu" : "Abrir menu"
+      );
+    });
+
+    // Fechar menu após clicar em um link
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.textContent = "☰";
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // Perguntas frequentes
+    document.querySelectorAll(".faq-question").forEach(button => {
+      button.addEventListener("click", () => {
+        const item = button.closest(".faq-item");
+        const aberto = item.classList.toggle("active");
+
+        button.setAttribute("aria-expanded", String(aberto));
+      });
+    });
+
+    // Preencher o assunto ao clicar em um serviço
+    document.querySelectorAll("[data-service]").forEach(link => {
+      link.addEventListener("click", () => {
+        document.getElementById("interest").value =
+          link.dataset.service;
+      });
+    });
+
+    // Validar e abrir o WhatsApp
+    function abrirWhatsApp(texto) {
+      if (!/^55\d{10,13}$/.test(5541996289001)) {
+        alert(
+          "Configure o número de WhatsApp no código, na variável WHATSAPP_NUMBER."
+        );
+        return;
+      }
+
+      const url =
+        "https://wa.me/" + 5541996289001 +
+        "?text=" + encodeURIComponent(texto);
+
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+
+    document.getElementById("contactForm").addEventListener(
+      "submit",
+      event => {
+        event.preventDefault();
+
+        const nome =
+          document.getElementById("name").value.trim();
+
+        const assunto =
+          document.getElementById("interest").value;
+
+        const mensagem =
+          document.getElementById("message").value.trim();
+
+        if (!nome || !assunto) {
+          alert("Preencha seu nome e selecione um assunto.");
+          return;
+        }
+
+        const texto =
+          `Olá, KS Recovery! Meu nome é ${nome}. ` +
+          `Gostaria de saber mais sobre: ${assunto}.` +
+          (mensagem ? ` Minha mensagem: ${mensagem}` : "");
+
+        abrirWhatsApp(texto);
+      }
+    );
+
+    // Botão flutuante
+    document.getElementById("whatsappFloat").addEventListener(
+      "click",
+      event => {
+        event.preventDefault();
+        abrirWhatsApp("Olá, KS Recovery! Gostaria de conhecer os serviços.");
+      }
+    );
+
+    // Ano automático no rodapé
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
